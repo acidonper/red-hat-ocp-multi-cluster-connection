@@ -31,8 +31,6 @@ spec:
       name: cluster1-aws-creds
 EOF
 ./oc apply -f /tmp/rhacm-cluster1-submariner-conf.yaml
-sleep 60
-oc get -n cluster1 submarinerconfig.submarineraddon.open-cluster-management.io/submariner -o jsonpath='{.status}'
 
 ## Create AWS credentials and submariner config in order to be able to prepare AWS account for the new connections
 ## CLUSTER 2
@@ -60,9 +58,10 @@ spec:
       name: cluster2-aws-creds
 EOF
 ./oc apply -f /tmp/rhacm-cluster2-submariner-conf.yaml
-sleep 60
-oc get -n cluster2 submarinerconfig.submarineraddon.open-cluster-management.io/submariner -o jsonpath='{.status}'
 
+sleep 120
+./oc get -n cluster2 submarinerconfig.submarineraddon.open-cluster-management.io/submariner -o jsonpath='{.status}'
+./oc get -n cluster1 submarinerconfig.submarineraddon.open-cluster-management.io/submariner -o jsonpath='{.status}'
 
 ## Create submariner ManagedClusterSet
 cat <<EOF > /tmp/rhacm-submariner.yaml
@@ -75,8 +74,8 @@ EOF
 
 
 ## Label cluster namespaces to added to the ManagedClusterSet
-oc label managedclusters cluster1 "cluster.open-cluster-management.io/clusterset=submariner" --overwrite
-oc label managedclusters cluster2 "cluster.open-cluster-management.io/clusterset=submariner" --overwrite
+./oc label managedclusters cluster1 "cluster.open-cluster-management.io/clusterset=submariner" --overwrite
+./oc label managedclusters cluster2 "cluster.open-cluster-management.io/clusterset=submariner" --overwrite
 
 
 ## Create Submariner in every cluster
