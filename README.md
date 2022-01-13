@@ -1,4 +1,4 @@
-# Openshift Cluster Interconnection via Submariner
+# Red Hat Openshift Multi Clusters Connection through Submariner
 
 This repository tries to collect the required information to install a couple of Openshift clusters in AWS and connect them through Submariner.
 
