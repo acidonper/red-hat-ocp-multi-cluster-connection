@@ -257,7 +257,7 @@ submariner-lighthouse-coredns           ClusterIP   172.30.194.126   <none>     
 ```$bash
 ./oc  get -n submariner-operator serviceimport
 NAME                             TYPE           IP                   AGE
-back-golang-jump-app-acidonpe2   ClusterSetIP   ["172.26.241.220"]   16h
+back-golang-jump-app-cluster2   ClusterSetIP   ["172.26.241.220"]   16h
 ```
 
 NOTE: The following command has to be executed in the cluster that exposes the application service
