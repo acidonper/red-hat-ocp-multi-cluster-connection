@@ -98,7 +98,9 @@ NOTE: Please find kubeadmin credentials in /tmp/ocp4_install_clusterrhacm/.opens
 
 Once the RHACM solution is installed and ready, it is time to visit the RHACM console and import both cluster1 and cluster2 managed clusters:
 
-oc get route -n open-cluster-management multicloud-console -o jsonpath='{.spec.host}'
+```$bash
+./oc get route -n open-cluster-management multicloud-console -o jsonpath='{.spec.host}'
+```
 
 NOTE: Please follow [Import OCP Cluster to RHACM](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.4/html/clusters/managing-your-clusters#importing-an-existing-cluster-with-the-console) for importing both clusters
 
