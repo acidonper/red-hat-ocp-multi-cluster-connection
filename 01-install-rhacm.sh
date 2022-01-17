@@ -47,7 +47,7 @@ apiVersion: operator.open-cluster-management.io/v1
 kind: MultiClusterHub
 metadata:
   name: multiclusterhub
-  namespace: <namespace>
+  namespace: ${NAMESPACE}
 spec: {}
 EOF
 ./oc apply -f /tmp/mch.yaml
