@@ -34,7 +34,7 @@ spec:
   name: advanced-cluster-management
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: advanced-cluster-management.v2.4.1
+  #startingCSV: advanced-cluster-management.v2.4.1
 EOF
 ./oc apply -f /tmp/rhacm-operator-subscription.yaml
 
